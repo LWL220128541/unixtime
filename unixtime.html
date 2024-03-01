@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unix Time Converter</title>
+</head>
+<body>
+  <h1>Unix Time Converter</h1>
+
+  <script>
+    // Get the Unix time parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const unixTime = urlParams.get('?');
+
+    // Function to convert Unix time to formatted time
+    function convertUnixTime(unixTime) {
+      const date = new Date(unixTime * 1000);
+      const hours = date.getHours();
+      const minutes = "0" + date.getMinutes();
+      const formattedTime = hours + ':' + minutes.substr(-2);
+      return formattedTime;
+    }
+
+    // Call the function and display the formatted time
+    const formattedTime = convertUnixTime(unixTime);
+    document.write(formattedTime);
+  </script>
+</body>
+</html>
